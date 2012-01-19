@@ -66,6 +66,7 @@ class SortedCheckboxSelectMultiple(forms.CheckboxSelectMultiple):
             value = data.getlist(name)
             if isinstance(value, basestring):
                 return [v for v in value.split(',') if v]
+            elif isinstance(value, list) and value==[u'']: return None
             return value
         return None
 
